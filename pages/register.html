@@ -1,0 +1,64 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../assets/styles/register.css">
+    <title>Register</title>
+  </head>
+  <body>
+
+
+    <form id="formRegister" method="POST">
+      <h1>Register</h1>
+      <input type="text" placeholder="Nome completo" name="nome" id="nome" class="ipt" />
+      <input type="text" placeholder="Telefone" name="telefone" id="telefone" class="ipt" />
+      <input type="password" placeholder="senha" name="senha" id="senha" class="ipt" />
+      <h2 id="erro"></h1>
+      <button type="submit">Register</button>
+    </form>
+
+
+        <script>
+
+          document.getElementById('formRegister').addEventListener('submit', registerUser)
+
+          function registerUser(e){
+
+            e.preventDefault()
+
+            var xhr  = new XMLHttpRequest()
+
+            var nome  = document.getElementById('nome').value;
+            var telefone = document.getElementById('telefone').value;
+            var senha  = document.getElementById('senha').value;
+
+            xhr.open('GET','register.php?nome='+nome+'&telefone='+telefone+'&senha='+senha, true)
+
+            xhr.onload  = function(){
+
+               var result  = JSON.parse(this.responseText);
+            
+              
+               if(result.id){
+
+                window.location = 'home.html.php?user='+telefone+'&nome='+result.nome+'&id='+result.id; 
+
+              }else{
+
+                document.getElementById('erro').innerHTML = this.responseText;
+
+              }
+            }
+
+            xhr.send()
+          }
+
+
+
+        </script>
+
+  </body>
+</html>
