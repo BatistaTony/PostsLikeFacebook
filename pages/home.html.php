@@ -35,7 +35,12 @@
     <ul class="posts" id="posts">
 
     </ul>
-  
+
+    <script>
+      
+        getPost(<?php echo $id; ?>)
+
+    </script>  
     
     <script src="./../assets/Js/main.js"></script>
 

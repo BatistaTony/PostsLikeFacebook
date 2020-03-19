@@ -86,7 +86,7 @@
 
         <div class="post_action">
           <ul class="reaction reaction_2">
-            <li onclick="react('<?php echo $post['id'];?>','<?php echo 17; ?>','like')">
+            <li onclick="react('<?php echo $post['id'];?>','<?php echo $_GET['id']; ?>','like')">
               <img
                 src="./../assets/images/icons8_facebook_like_48px_1.png"
                 alt=""

@@ -1,10 +1,10 @@
 
 
-function getPost(){
+function getPost(id){
 
     var xhr = new XMLHttpRequest();
     
-    xhr.open('GET', 'getpost.html.php', true);
+    xhr.open('GET', 'getpost.html.php?id='+id, true);
     
     xhr.onload = function () {
         
@@ -15,7 +15,6 @@ function getPost(){
     xhr.send()
 }
 
-getPost()
 
 
 function postar(user, nome) {
@@ -28,7 +27,7 @@ function postar(user, nome) {
     
     xhr.onload = function () {
         if (this.status === 200) {
-            getPost()
+            getPost(id)
         }
     }
 
